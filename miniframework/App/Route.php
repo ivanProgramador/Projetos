@@ -1,43 +1,18 @@
 <?php 
   // esse arquivo vai ser reponsavel pela administração das rotas 
 
+
+  //importação de recursos
   namespace App;
+  use MF\Init\Bootstrap;
 
-  class Route{
+
+
+
+  class Route extends Bootstrap{
  
-   private $routes;
-
-   //construtor 
-
-   public function __construct(){
-
-      $this->initRoutes();
-      $this->run($this->getUrl());
-
-   }
-
-  // gets e sets
-
-    public function getRoutes(){
-
-      return $this->routes;
-
-    }
-
-    public function setRoutes(array $routes){
-
-        $this->routes = $routes;
-
-    }
-
-
-  //------------------
-
-
-
-
-
-  	public function initRoutes(){
+  
+  	protected function initRoutes(){
 
       	 	$routes['home'] = array(
       	 		'route' => '/' ,
@@ -57,41 +32,6 @@
 
   	  }
 
-
-      public function run($url){
-
-        foreach ($this->getRoutes() as $key => $route) {
-
-           if($url == $route['route']){
-
-              $class = "App\\Controllers\\".ucfirst($route['controller']);
-
-              $controller  = new $class;
-
-              $action =  $route['action'];
-
-              $controller->$action();
-
-
-             
-           }
-          
-
-        }
-
-
-      }
-     
-
-
-
-
-
-     //esse metodo captura as informações da url solicitada pelo cliente
-     public function getUrl(){
-
-     	return parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH); 
-     }
 
   }
 
