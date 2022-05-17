@@ -1,24 +1,15 @@
 <?php
   
    namespace App\Controllers;
+   use MF\Controller\Action;
 
-   //Embora a exbição aconteça no index da pasta public 
-   // as views requisitadas tem que ser na pasta views 
-   //porque lá na pasta public o autoload ja puxa tudo
-   //então esses requires tem que ser feitos dentro da propria aplicação
+  
 
 
 
-    Class IndexController{
+    Class IndexController extends Action {
 
-          private $view;
-
-          public function __construct(){
-
-          	 //stdClass() é uma classe dinamica do php que da´pra adicionar atributos
-
-          	  $this->view = new \stdClass();
-          }
+        
 
          
           public function index(){
@@ -42,19 +33,7 @@
 
           }
 
-          //rederizando as views de forma dinamica
-
-          public function render($view){
-
-          	     $classeAtual = get_class($this);
-
-          	     $classeAtual = str_replace('App\\Controllers\\','',$classeAtual);
-
-          	     $classeAtual = strtolower(str_replace('Controller','',$classeAtual));
-
-           	  	 require_once '../App/Views/'.$classeAtual.'/'.$view.'.phtml';
-
-          }
+         
 
    }
 
