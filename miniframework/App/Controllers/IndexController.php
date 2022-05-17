@@ -20,7 +20,7 @@
 
             $this->view->dados = array('sofa','cadeira','cama');
 
-          	$this->render('index');
+          	$this->render('index','layout1');
 
           }
 
@@ -28,7 +28,7 @@
 
            $this->view->dados = array('notebook','mouse','teclado');
 
-           $this->render('sobreNos');
+           $this->render('sobreNos','layout2');
           	
 
           }
