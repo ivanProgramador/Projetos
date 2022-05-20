@@ -2,9 +2,18 @@
 <h1>Sobre Nós</h1>
 <hr>
 <?php
-  
-  foreach ($this->view->dados as $indice => $valor) {
+
+ 
+
+
+
+  foreach ($this->view->dados as $indice => $info) { ?>
   	
-  	 echo $valor."<br>";
-  }
-?>
+  	 
+
+  	 <h1><?= $info['titulo']?><h1>
+  	 <h2><?= $info['descricao']?></h2><hr>
+
+ <?php } ?>
+
+
